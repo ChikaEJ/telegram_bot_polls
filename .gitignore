@@ -1,3 +1,58 @@
-venv
 .idea
-telegram_bot_polls/db.sqlite3
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual env
+venv/
+env/
+ENV/
+.venv/
+
+# Django
+*.log
+*.pot
+*.pyc
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+local_settings.py
+.env
+.env.*
+
+# VSCode
+.vscode/
+
+# macOS
+.DS_Store
+
+# Byte-compiled / optimized / DLL files
+*.so
+
+# Migrations (опционально — только если не хочешь коммитить их сразу)
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Coverage / testing
+htmlcov/
+.tox/
+.coverage
+coverage.xml
+*.cover
+*.log
+
+# pytest
+.pytest_cache/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+
+# Other
+*.bak
+*.swp
+*.tmp
