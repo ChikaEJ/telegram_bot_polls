@@ -1,7 +1,7 @@
 import json
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from telegram_bot_polls.user.models import UserProfileModel, PollModel
+from user.models import UserProfileModel, PollModel
 from .telegram import send_poll, send_message
 
 @csrf_exempt
