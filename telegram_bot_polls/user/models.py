@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class UserProfile(models.Model):
+class UserProfileModel(models.Model):
     telegram_chat_id = models.BigIntegerField(unique=True)
     completed_polls = models.PositiveIntegerField(default=0)
 
