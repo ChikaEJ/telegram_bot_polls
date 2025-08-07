@@ -10,7 +10,8 @@ def send_message(chat_id, text):
     return response
 
 def send_poll(chat_id, poll):
-    url = f"{BASE_URL}/getPoll"
+    print(f"Sending poll {poll.question} to {chat_id} {poll.options}...")
+    url = f"{BASE_URL}/sendPoll"
     payload = {
         "chat_id": chat_id,
         "question": poll.question,
@@ -19,6 +20,7 @@ def send_poll(chat_id, poll):
     }
     response = requests.post(url, json=payload)
     if "result" in response.json():
-            poll.poll_id = response["result"]["poll"]["id"]
-            poll.save()
+        print(response.json())
+        poll.poll_id = response.json()["result"]["poll"]["id"]
+        poll.save()
     return response

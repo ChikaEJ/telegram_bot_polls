@@ -24,10 +24,11 @@ def telegram_webhook(request):
                 send_message(chat_id, "Опросников нет!")
 
     elif "poll_answer" in data:
+        print(data["poll_answer"])
         answer = data["poll_answer"]
-        poll_id = answer["poll"]["id"]
+        poll_id = answer["poll_id"]
         user_chat_id = answer["user"]["id"]
-        selected = answer["options_ids"]
+        selected = answer["option_ids"]
 
         try:
             user = UserProfileModel.objects.get(telegram_chat_id=user_chat_id)
