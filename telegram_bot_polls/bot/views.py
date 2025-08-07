@@ -13,8 +13,8 @@ def telegram_webhook(request):
         text = data["message"]["text"]
 
         if text == "/start":
-            user, created = UserProfileModel.objects.get_or_create(telegram_id=chat_id)
-            send_message(chat_id, "Вы зарегистрированны!")
+            user, created = UserProfileModel.objects.get_or_create(telegram_chat_id=chat_id)
+            send_message(chat_id, "Вы зарегистрированны!\n/poll")
 
         elif text == "/poll":
             try:
