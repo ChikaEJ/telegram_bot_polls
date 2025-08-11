@@ -31,7 +31,7 @@ cd telegram_bot_polls
 ```
 ### 2. Настройка .env
     
-    - Создай файл .env в корне проекта и укажите:
+####    - Создай файл .env в корне проекта и укажите:
 ```
 # Django
 DJANGO_SECRET_KEY=django-insecure-your-secret-key
@@ -53,35 +53,34 @@ TELEGRAM_BOT_TOKEN=<you telegram token here>
 NGROK_TUNNEL_URL=<your ngrok url here>/bot/webhook/
 
 ```
-[Создание Телеграм бота](https://developers.sber.ru/help/salutebot/telegram-integration/)
+#### [Создание Телеграм бота](https://developers.sber.ru/help/salutebot/telegram-integration/)
 
 ### 3. Docker Compose запуск
 ```bash
 docker-compose up --build
 ```
-    Это поднимет:
+ ####   Это поднимет:
 
-    * Django backend (bot_app)
+####  * Django backend (bot_app)
 
-    * PostgreSQL (db)
+####    * PostgreSQL (db)
 
-    * ngrok (ngrok) — проброс для вебхука
+####    * ngrok (ngrok) — проброс для вебхука
 
 ### 4. Миграции и суперпользователь
-    После первого запуска:
+####    После первого запуска:
 ```bash
 docker-compose exec bot_app python telegram_bot_polls/manage.py migrate
 docker-compose exec bot_app python telegram_bot_polls/manage.py createsuperuser
 
 ```
 ### 5. Настройка вебхука
-[Ngrok](https://ngrok.com/downloads/windows)
-    1) После того как вы настроили ngrok на вашем компьюторе и прописали url с ngrok в .env файле,
-    Выполни в терминале команду для установки вебхука:
+
+#### 1) После того как вы настроили [Ngrok](https://ngrok.com/downloads/windows) на вашем компьюторе и прописали url с ngrok в .env файле, Выполни в терминале команду для установки вебхука:
 ```bash
 docker-compose exec bot_app python set_webhook.py
 ```
-    2) Если всё прошло успешно, Telegram вернёт ответ:
+#### 2) Если всё прошло успешно, Telegram вернёт ответ:
 ````
 {
   "ok": true,
@@ -89,8 +88,8 @@ docker-compose exec bot_app python set_webhook.py
   "description": "Webhook was set"
 }
 ````
-    6) Открываем телеграм. Находим созданного бота через поиск и нажимает /start
-    7) Пройдите по адресу https://<your ngrok url>/admin для добавления опросников в базу. 
+####    6) Открываем телеграм. Находим созданного бота через поиск и нажимает /start
+####    7) Пройдите по адресу https://"your ngrok url"/admin для добавления опросников в базу. 
 
 
 
