@@ -12,9 +12,9 @@ SECRET_KEY = secret_key_validator()
 
 DEBUG = os.getenv('DJANGO_DEBUG')
 
-ALLOWED_HOSTS = [os.getenv('DJANGO_ALLOWED_HOSTS')]
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS').split(',')
 
-CSRF_TRUSTED_ORIGINS = [os.getenv('DJANGO_CSRF_TRUSTED_ORIGINS')]
+CSRF_TRUSTED_ORIGINS = os.getenv('DJANGO_CSRF_TRUSTED_ORIGINS').split(',')
 
 
 INSTALLED_APPS = [

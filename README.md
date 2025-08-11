@@ -36,7 +36,8 @@ cd telegram_bot_polls
 # Django
 DJANGO_SECRET_KEY=django-insecure-your-secret-key
 DJANGO_DEBUG=True
-DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1
+DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,<your ngrok or webhook registered domain(example: https://3d4fcdaeaccd.ngrok-free.app)>
+DJANGO_CSRF_TRUSTED_ORIGINS=<your ngrok or webhook registered domain(example: https://3d4fcdaeaccd.ngrok-free.app)>,
 
 # Database
 POSTGRES_DB=botdb
@@ -68,8 +69,8 @@ docker-compose up --build
 ### 4. Миграции и суперпользователь
     После первого запуска:
 ```bash
-docker-compose exec web python manage.py migrate
-docker-compose exec web python manage.py createsuperuser
+docker-compose exec bot_app python telegram_bot_polls/manage.py migrate
+docker-compose exec bot_app python telegram_bot_polls/manage.py createsuperuser
 
 ```
 ### 5. Настройка вебхука

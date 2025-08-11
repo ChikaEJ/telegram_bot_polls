@@ -14,7 +14,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python telegram_bot_polls/manage.py runserver 0.0.0.0:8000
     image: tegram_bot_img
     volumes:
       - .:/usr/src/app
@@ -24,17 +24,5 @@ services:
       - db
     env_file:
       - .env
-  ngrok:
-    image: wernight/ngrok
-    container_name: telegram_bot_ngrok
-    restart: unless-stopped
-    command: ngrok http bot_app:8000
-    environment:
-      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
-    depends_on:
-      - bot_app
-    ports:
-      - "4040:4040"
-
 volumes:
   postgres_data:
