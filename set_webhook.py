@@ -2,7 +2,6 @@ import os
 
 import requests
 
-
 TG_API_KEY = os.getenv("TELEGRAM_BOT_TOKEN")
 webhook = os.getenv("NGROK_TUNNEL_URL")
 

@@ -36,7 +36,7 @@ cd telegram_bot_polls
 # Django
 DJANGO_SECRET_KEY=<Ваш Джанго секретный ключ>
 DJANGO_DEBUG=True
-DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,<Ваш ngrok адрес>
+DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,<Ваш ngrok адрес без http://>
 DJANGO_CSRF_TRUSTED_ORIGINS=<Ваш ngrok адрес>,
 
 # Database
@@ -67,14 +67,9 @@ docker-compose up --build
 
 ####    * ngrok (ngrok) — проброс для вебхука
 
-### 4. Миграции и суперпользователь
-####    После первого запуска:
-```bash
-docker-compose exec bot_app python telegram_bot_polls/manage.py migrate
-docker-compose exec bot_app python telegram_bot_polls/manage.py createsuperuser
+####    * Применит миграции и создаст суперпользователя
 
-```
-### 5. Настройка вебхука
+### 4. Настройка вебхука
 
 #### 1) После того как вы настроили [Ngrok](https://ngrok.com/downloads/windows) на вашем компьюторе и прописали url с ngrok в .env файле, Выполни в терминале команду для установки вебхука:
 ```bash
@@ -88,8 +83,8 @@ docker-compose exec bot_app python set_webhook.py
   "description": "Webhook was set"
 }
 ````
-####    6) Открываем телеграм. Находим созданного бота через поиск и нажимает /start
-####    7) Пройдите по адресу https://"Ваш ngrok адрес"/admin для добавления опросников в базу. 
+####    5) Открываем телеграм. Находим созданного бота через поиск и нажимает /start
+####    6) Пройдите по адресу https://"Ваш ngrok адрес"/admin для добавления опросников в базу. 
 
 
 
