@@ -87,3 +87,7 @@ docker-compose exec bot_app python set_webhook.py
 }
 ````
     6) Открываем телеграм. Находим созданного бота через поиск и нажимает /start
+    7) Пройдите по адресу https://<your ngrok url>/admin для добавления опросников в базу. 
+
+
+
