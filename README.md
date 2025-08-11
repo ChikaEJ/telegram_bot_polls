@@ -47,12 +47,14 @@ POSTGRES_HOST=db
 POSTGRES_PORT=5432
 
 # Telegram
-TELEGRAM_BOT_TOKEN=<you [telegram token](https://developers.sber.ru/help/salutebot/telegram-integration) here>
+TELEGRAM_BOT_TOKEN=<you telegram token here>
 
 # Ngrok (опционально)
 NGROK_TUNNEL_URL=<your ngrok url here>/bot/webhook/
 
 ```
+[Создание Телеграм бота](https://developers.sber.ru/help/salutebot/telegram-integration/)
+
 ### 3. Docker Compose запуск
 ```bash
 docker-compose up --build
@@ -73,7 +75,8 @@ docker-compose exec bot_app python telegram_bot_polls/manage.py createsuperuser
 
 ```
 ### 5. Настройка вебхука
-    1) После того как вы настроили [ngrok](https://ngrok.com/downloads/windows) на вашем компьюторе и прописали url с ngrok в .env файле,
+[Ngrok](https://ngrok.com/downloads/windows)
+    1) После того как вы настроили ngrok на вашем компьюторе и прописали url с ngrok в .env файле,
     Выполни в терминале команду для установки вебхука:
 ```bash
 docker-compose exec bot_app python set_webhook.py
