@@ -8,9 +8,9 @@ class UserProfileModel(models.Model):
 
 class PollModel(models.Model):
     user_profile = models.ForeignKey(
-        to='user.UserProfileModel',
+        to="user.UserProfileModel",
         on_delete=models.CASCADE,
-        related_name='user_polls',
+        related_name="user_polls",
         db_index=True,
     )
     poll_id = models.BigIntegerField(null=True, blank=True)

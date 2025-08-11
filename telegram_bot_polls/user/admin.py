@@ -30,4 +30,3 @@ class PollAdmin(admin.ModelAdmin):
             }
         )
     )
-# Register your models here.

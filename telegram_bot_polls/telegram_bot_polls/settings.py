@@ -1,5 +1,6 @@
-from pathlib import Path
 import os
+from pathlib import Path
+
 from dotenv import load_dotenv
 
 from telegram_bot_polls.utils import secret_key_validator
@@ -8,7 +9,7 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = "django-insecure-rb6657^s09g3qf&n_avwc!u)04r&vwupao)ic@(nd2qenm7#$z"#secret_key_validator()
+SECRET_KEY = secret_key_validator()
 
 DEBUG = os.getenv('DJANGO_DEBUG')
 

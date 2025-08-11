@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 BASE_URL = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}"
 
 
@@ -17,7 +17,6 @@ def send_message(chat_id, text):
 
 
 def send_poll(chat_id, poll):
-    print(f"Sending poll {poll.question} to {chat_id} {poll.options}...")
     url = f"{BASE_URL}/sendPoll"
     payload = {
         "chat_id": chat_id,
@@ -27,7 +26,6 @@ def send_poll(chat_id, poll):
     }
     response = requests.post(url, json=payload)
     if "result" in response.json():
-        print(response.json())
         poll.poll_id = response.json()["result"]["poll"]["id"]
         poll.save()
     return response
