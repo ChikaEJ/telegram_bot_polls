@@ -34,10 +34,10 @@ cd telegram_bot_polls
 ####    - Создай файл .env в корне проекта и укажите:
 ```
 # Django
-DJANGO_SECRET_KEY=django-insecure-your-secret-key
+DJANGO_SECRET_KEY=<Ваш Джанго секретный ключ>
 DJANGO_DEBUG=True
-DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,<your ngrok or webhook registered domain(example: https://3d4fcdaeaccd.ngrok-free.app)>
-DJANGO_CSRF_TRUSTED_ORIGINS=<your ngrok or webhook registered domain(example: https://3d4fcdaeaccd.ngrok-free.app)>,
+DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,<Ваш ngrok адрес>
+DJANGO_CSRF_TRUSTED_ORIGINS=<Ваш ngrok адрес>,
 
 # Database
 POSTGRES_DB=botdb
@@ -47,10 +47,10 @@ POSTGRES_HOST=db
 POSTGRES_PORT=5432
 
 # Telegram
-TELEGRAM_BOT_TOKEN=<you telegram token here>
+TELEGRAM_BOT_TOKEN=<Ваш телеграмм токен>
 
 # Ngrok (опционально)
-NGROK_TUNNEL_URL=<your ngrok url here>/bot/webhook/
+NGROK_TUNNEL_URL=<Ваш ngrok адрес>/bot/webhook/
 
 ```
 #### [Создание Телеграм бота](https://developers.sber.ru/help/salutebot/telegram-integration/)
@@ -89,7 +89,7 @@ docker-compose exec bot_app python set_webhook.py
 }
 ````
 ####    6) Открываем телеграм. Находим созданного бота через поиск и нажимает /start
-####    7) Пройдите по адресу https://"your ngrok url"/admin для добавления опросников в базу. 
+####    7) Пройдите по адресу https://"Ваш ngrok адрес"/admin для добавления опросников в базу. 
 
 
 
