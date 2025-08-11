@@ -5,6 +5,7 @@ class UserProfileModel(models.Model):
     telegram_chat_id = models.BigIntegerField(unique=True)
     completed_polls = models.PositiveIntegerField(default=0)
 
+
 class PollModel(models.Model):
     user_profile = models.ForeignKey(
         to='user.UserProfileModel',

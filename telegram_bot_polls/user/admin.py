@@ -1,10 +1,12 @@
 from django.contrib import admin
-from user.models import UserProfileModel, PollModel
+from user.models import PollModel, UserProfileModel
+
 
 @admin.register(UserProfileModel)
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = ("telegram_chat_id", "completed_polls")
     search_fields = ("telegram_chat_id", "completed_polls")
+
 
 @admin.register(PollModel)
 class PollAdmin(admin.ModelAdmin):
@@ -18,7 +20,12 @@ class PollAdmin(admin.ModelAdmin):
         }),
         (
             "Системные поля(не редактировать!)", {
-                "fields": ("user_options", "poll_id", "created_at", "updated_at"),
+                "fields": (
+                    "user_options",
+                    "poll_id",
+                    "created_at",
+                    "updated_at"
+                ),
                 "classes": ("collapse",)
             }
         )
