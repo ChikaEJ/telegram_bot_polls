@@ -8,13 +8,13 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = secret_key_validator()
+SECRET_KEY = "django-insecure-rb6657^s09g3qf&n_avwc!u)04r&vwupao)ic@(nd2qenm7#$z"#secret_key_validator()
 
 DEBUG = os.getenv('DJANGO_DEBUG')
 
 ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS').split(',')
 
-CSRF_TRUSTED_ORIGINS = os.getenv('DJANGO_CSRF_TRUSTED_ORIGINS').split(',')
+CSRF_TRUSTED_ORIGINS = os.getenv('DJANGO_CSRF_TRUSTED_ORIGINS', '').split(',')
 
 
 INSTALLED_APPS = [
