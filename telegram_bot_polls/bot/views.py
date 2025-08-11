@@ -1,8 +1,11 @@
 import json
+
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from user.models import UserProfileModel, PollModel
-from .telegram import send_poll, send_message
+from user.models import PollModel, UserProfileModel
+
+from .telegram import send_message, send_poll
+
 
 @csrf_exempt
 def telegram_webhook(request):
@@ -13,7 +16,9 @@ def telegram_webhook(request):
         text = data["message"]["text"]
 
         if text == "/start":
-            user, created = UserProfileModel.objects.get_or_create(telegram_chat_id=chat_id)
+            user, created = UserProfileModel.objects.get_or_create(
+                telegram_chat_id=chat_id
+            )
             send_message(chat_id, "Вы зарегистрированны!\n/poll")
 
         elif text == "/poll":
